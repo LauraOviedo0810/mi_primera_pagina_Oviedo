@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Productos</title>
+</head>
+<body>
+    <h1>Listado de Productos</h1>
+    <p><a href="/admin/">Ir al admin</a> (para agregar productos)</p>
+    <ul>
+        {% for producto in productos %}
+            <li>
+                <strong>{{ producto.nombre }}</strong> - ${{ producto.precio }}<br>
+                {{ producto.descripcion }}
+            </li>
+        {% empty %}
+            <li>No hay productos cargados.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
