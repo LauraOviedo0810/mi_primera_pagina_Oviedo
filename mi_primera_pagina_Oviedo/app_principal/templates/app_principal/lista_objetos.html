@@ -6,7 +6,27 @@
 </head>
 <body>
     <h1>Listado de Productos</h1>
-    <p><a href="/admin/">Ir al admin</a> (para agregar productos)</p>
+
+    <!-- FORMULARIO PARA CREAR PRODUCTOS -->
+    <h2>Crear Producto</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Nombre:</label><br>
+        <input type="text" name="nombre" required><br><br>
+
+        <label>Precio:</label><br>
+        <input type="number" name="precio" step="0.01" required><br><br>
+
+        <label>Descripción:</label><br>
+        <textarea name="descripcion"></textarea><br><br>
+
+        <button type="submit">Crear Producto</button>
+    </form>
+
+    <hr>
+
+    <!-- LISTADO DE PRODUCTOS -->
+    <h2>Productos cargados</h2>
     <ul>
         {% for producto in productos %}
             <li>
@@ -17,5 +37,6 @@
             <li>No hay productos cargados.</li>
         {% endfor %}
     </ul>
+
 </body>
 </html>
